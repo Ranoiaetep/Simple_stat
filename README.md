@@ -6,6 +6,7 @@ Learning objectives are to:
 - Draw   UML class and class interaction diagrams
 - Learn simple statistics operations 
 - Learn Git and GitHub operations
+
 The solution objective of this project is to represent a series of numeric type (both integer and double) data (is called "data object" from now on) that offers LaTeX: \Theta\left(1\right)
 Θ
 (
