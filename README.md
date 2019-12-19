@@ -16,7 +16,7 @@ The solution objective of this project is to represent a series of numeric type 
 - so above statistics also represent a part of the state of the data object
 - both fast access and saving space is paramount; developer must strive to use the smallest space possible for storage and must give Θ(1) access to above statistics when demanded
 - In addition to above mentioned states, your data structure must support below operations:
-  - append: append new data from the end
+  - [ ] append: append new data from the end
   - removen (from any place): remove n number of a given data element
   - empty: delete all data
   - feed: append from from any standard C++ container (any that supports iteration) data type (std::array, std::vector, std::set, etc)). This may be bit hard. Search about this and really have a meaningful discussion within the team.  Only one feed method is allowed: this means no overloaded feed methods
