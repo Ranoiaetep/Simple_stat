@@ -1,3 +1,11 @@
+//
+//  Simple_stat.h
+//  Simple_stat
+//
+//  Created by Peter Cong on 11/4/19.
+//  Copyright © 2019 Tianpeng Cong. All rights reserved.
+//
+
 #ifndef Simple_stat_h
 #define Simple_stat_h
 
