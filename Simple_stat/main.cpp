@@ -45,8 +45,12 @@ int main(int argc, char *argv[])
         std::cout<<stats[i]<<"\n";
     }
     
+    
+    std::cout<<"\n\nFeeding std::vector:";
     std::vector<int> v {3,3,5,5,8};
     stats.feed(v);
     stats.print_stats();
     
+    stats.empty();
+    stats.print_stats();    
 }

@@ -170,7 +170,15 @@ public:
     }
     
     void print(){
+        if (count==0) {
+            std::cout<<"Data set is empty.\n";
+            return;
+        }
         data_list.moveToStart();
+        if (data_list.length()==0) {
+            std::cout<<"Data set is empty.\n";
+            return;
+        }
         for (int i=0; i<data_list.length(); i++) {
             std::cout<<std::get<1>(data_list.getValue())<<" copies of "<<std::get<0>(data_list.getValue())<<", first appeared at index "<<std::get<2>(data_list.getValue())-1<<"\n";
             data_list.next();
@@ -185,6 +193,10 @@ public:
         std::cout<<"\nMean: "<<get_mean();
         std::cout<<"\nMode: "<<get_mode();
         std::cout<<"\nSD: "<<get_sd();
+        if (count==0) {
+            std::cout<<"\nData set is empty.";
+        }
+        std::cout<<"\n";
     }
     
     void search(int data){
@@ -209,6 +221,11 @@ public:
         for (int data:datas) {
             append(data);
         }
+    }
+    
+    void empty(){
+        data_list.~LList();
+        min = max = mean = mean = mode = SD = count = unique_count =0;
     }
     
 };
