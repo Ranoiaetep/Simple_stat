@@ -7,12 +7,7 @@ Learning objectives are to:
 - Learn simple statistics operations 
 - Learn Git and GitHub operations
 
-The solution objective of this project is to represent a series of numeric type (both integer and double) data (is called "data object" from now on) that offers \Theta\left(1\right)
-Θ
-(
-1
-)
- access to few statistics (mentioned below)  according to below properties:
+The solution objective of this project is to represent a series of numeric type (both integer and double) data (is called "data object" from now on) that offers Θ(1) access to few statistics (mentioned below)  according to below properties:
 
 typical data object has a lot of duplicate entries 
 there is no limit to the number of unique data elements inside
