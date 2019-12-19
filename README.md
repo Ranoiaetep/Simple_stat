@@ -47,20 +47,19 @@ Below are requirements and restrictions:
 - Write your entire solutions with the class name "Simple_stat" in a single header named "simple_stat.h" file and test it in a separate main program
 - In the same project since you will be using linear structures headers linked here, make sure those headers contain the copyright note, "
 
-// From the software distribution accompanying the textbook
+  // From the software distribution accompanying the textbook
 
-// "A Practical Introduction to Data Structures and Algorithm Analysis,
+  // "A Practical Introduction to Data Structures and Algorithm Analysis,
 
-// Third Edition (C++)" by Clifford A. Shaffer.
+  // Third Edition (C++)" by Clifford A. Shaffer.
 
-// Source code Copyright (C) 2007-2011 by Clifford A. Shaffer."
-This is very important as your project in GitHub is opensource. 
-I updated code zip file I posted with this note. So if you download 
-the latest linked here you are good to go.
+  // Source code Copyright (C) 2007-2011 by Clifford A. Shaffer."
+  This is very important as your project in GitHub is opensource. 
+  I updated code zip file I posted with this note. So if you download the latest linked here you are good to go.
 
 Submission:
 
-Each group member must have a GitHub account and must show in the project as an active contributor
-Good readme.md page in github 
-complete UML class digram for Simple_stat class and overall class interaction diagram for the entire project
-Testing criteria: soon to be updated
+- Each group member must have a GitHub account and must show in the project as an active contributor
+- Good readme.md page in github 
+- complete UML class digram for Simple_stat class and overall class interaction diagram for the entire project
+- Testing criteria: soon to be updated
