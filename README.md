@@ -1,6 +1,6 @@
 **Things to do:**
-**- [ ] UML diagram
-**- [ ] an actual README file
+**- [ ] UML diagram**
+**- [ ] an actual README file**
 - [ ] maybe some updates on main file, to do better demos
 - [ ] maybe minor things on simple_stat.h
 
