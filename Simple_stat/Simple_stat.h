@@ -14,6 +14,7 @@ private:
     double min;
     double max;
     int sum = 0;
+    int sq_sum = 0;
     int count = 0;
     int unique_count = 0;
     std::pair<int,int> highest_mode = std::make_pair(0, 0);
@@ -33,6 +34,7 @@ public:
     void append(int data){
         data_list.moveToStart();
         sum += data;
+        sq_sum += data*data;
         count++;
 
         for (int n=0;n<data_list.length(); n++) {

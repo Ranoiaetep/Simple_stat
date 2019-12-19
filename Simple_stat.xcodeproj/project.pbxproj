@@ -24,12 +24,12 @@
 
 /* Begin PBXFileReference section */
 		A90A082D23ABF96D00B0FF31 /* Simple_stat */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Simple_stat; sourceTree = BUILT_PRODUCTS_DIR; };
-		A90A083A23ABFA3200B0FF31 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		A90A083B23ABFA3200B0FF31 /* list.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = list.h; sourceTree = "<group>"; };
-		A90A083C23ABFA3200B0FF31 /* llist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = llist.h; sourceTree = "<group>"; };
-		A90A083D23ABFA3200B0FF31 /* utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utilities.h; sourceTree = "<group>"; };
-		A90A083E23ABFA3200B0FF31 /* Simple_stat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Simple_stat.h; sourceTree = "<group>"; };
-		A90A083F23ABFA3200B0FF31 /* link.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = link.h; sourceTree = "<group>"; };
+		A90A083A23ABFA3200B0FF31 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = main.cpp; sourceTree = "<group>"; };
+		A90A083B23ABFA3200B0FF31 /* list.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = list.h; sourceTree = "<group>"; };
+		A90A083C23ABFA3200B0FF31 /* llist.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = llist.h; sourceTree = "<group>"; };
+		A90A083D23ABFA3200B0FF31 /* utilities.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = utilities.h; sourceTree = "<group>"; };
+		A90A083E23ABFA3200B0FF31 /* Simple_stat.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Simple_stat.h; sourceTree = "<group>"; };
+		A90A083F23ABFA3200B0FF31 /* link.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = link.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
