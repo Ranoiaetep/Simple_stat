@@ -23,6 +23,11 @@ public:
     Simple_stat(){
         LList<std::tuple <int,int,int>> data_list;
     }
+    
+    template<typename T>
+    Simple_stat(T datas){
+        feed(datas);
+    }
 
     std::pair<int,int> new_mode(std::tuple <int,int,int> data){
         if (std::get<1>(data)>highest_mode.second) {

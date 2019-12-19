@@ -6,7 +6,7 @@
 
 int main(int argc, char *argv[])
 {
-    
+    std::cout<<"Default constructor:\n";
     Simple_stat<int> stats;
     stats.append(5);
     stats.append(3);
@@ -52,5 +52,10 @@ int main(int argc, char *argv[])
     stats.print_stats();
     
     stats.empty();
-    stats.print_stats();    
+    stats.print_stats();
+    
+    
+    std::cout<<"\n\nConstructor creating data directly from standard containers:\n";
+    Simple_stat<int> stats2(v);
+    stats2.print();
 }
