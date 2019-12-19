@@ -7,7 +7,7 @@ Learning objectives are to:
 - Learn simple statistics operations 
 - Learn Git and GitHub operations
 
-The solution objective of this project is to represent a series of numeric type (both integer and double) data (is called "data object" from now on) that offers LaTeX: \Theta\left(1\right)
+The solution objective of this project is to represent a series of numeric type (both integer and double) data (is called "data object" from now on) that offers \Theta\left(1\right)
 Θ
 (
 1
