@@ -14,6 +14,7 @@ private:
     double min;
     double max;
     int sum = 0;
+    int sq_sum = 0;
     int count = 0;
     int unique_count = 0;
     std::pair<int,int> highest_mode = std::make_pair(0, 0);
@@ -21,6 +22,11 @@ private:
 public:
     Simple_stat(){
         LList<std::tuple <int,int,int>> data_list;
+    }
+    
+    template<typename T>
+    Simple_stat(T datas){
+        feed(datas);
     }
 
     std::pair<int,int> new_mode(std::tuple <int,int,int> data){
@@ -33,6 +39,7 @@ public:
     void append(int data){
         data_list.moveToStart();
         sum += data;
+        sq_sum += data*data;
         count++;
 
         for (int n=0;n<data_list.length(); n++) {
@@ -43,6 +50,7 @@ public:
                 data_list.moveToStart();
                 unique_count++;
                 highest_mode = new_mode(dataset);
+                calc_data();
                 return;
             }
             if (data==std::get<0>(data_list.getValue())){
@@ -51,6 +59,7 @@ public:
                 data_list.remove();
                 data_list.insert(dataset);
                 highest_mode = new_mode(dataset);
+                calc_data();
                 return;
             }
             data_list.next();
@@ -60,6 +69,7 @@ public:
         data_list.insert(dataset);
         highest_mode = new_mode(dataset);
         unique_count++;
+        calc_data();
     }
     
     void removen (int data, int quantity){
@@ -77,29 +87,15 @@ public:
                     unique_count--;
                 }
                 sum-=data*quantity;
-                /*
-                if (std::get<0>(dataset)==highest_mode.first) {
+                if (data == mode) {
+                    highest_mode = std::make_pair(0, 0);
                     data_list.moveToStart();
-                    int high = 0;
-                    for (int i=0; i<data_list.length(); i++) {
-                        int a = std::get<1>(data_list.getValue());
-                        if (high<a) {
-                            high=a;
-                            std::cout<<std::get<0>(data_list.getValue())<<"hi\n";
-                        }
+                    for (int n=0;n<data_list.length(); n++) {
+                        highest_mode = new_mode(data_list.getValue());
                         data_list.next();
                     }
-                    int index = 0;
-                    for (int i=0; i<data_list.length(); i++) {
-                        if (std::get<0>(data_list.getValue())==high) {
-                            index = i;
-                        }
-                    }
-                    std::cout<<index;
-                    data_list.moveToPos(index);
-                    new_mode(data_list.getValue());
                 }
-                 */
+                calc_data();
                 return;
             }
             data_list.next();
@@ -111,22 +107,61 @@ public:
         return unique_count;
     }
     
-    int get_min(){
+    void calc_mean(){
+        mean = sum/(double)count;
+    }
+    void calc_sd(){
+        SD = sqrt(sq_sum/(double)count-mean*mean);
+    }
+    
+    void calc_mode(){
+        mode = highest_mode.first;
+    }
+    
+    void calc_min(){
         data_list.moveToStart();
-        return std::get<0>(data_list.getValue());
+        min = std::get<0>(data_list.getValue());
+    }
+    
+    void calc_max(){
+        data_list.moveToPos(data_list.length()-1);
+        max = std::get<0>(data_list.getValue());
+    }
+    
+    void calc_data(){
+        calc_min();
+        calc_max();
+        calc_mean();
+        calc_sd();
+        calc_mode();
+    }
+    
+    int get_min(){
+        return min;
     }
     
     int get_max(){
-        data_list.moveToPos(data_list.length()-1);
-        return std::get<0>(data_list.getValue());
+        return max;
     }
     
     double get_mean(){
-        return sum/(double)count;
+        return mean;
+    }
+    
+    double get_sd(){
+        return SD;
     }
     
     int get_mode(){
-        return highest_mode.first;
+        return mode;
+    }
+    
+    int length_unique(){
+        return unique_count;
+    }
+    
+    int length_total(){
+        return count;
     }
     
     double sqrt(double number){
@@ -140,11 +175,33 @@ public:
     }
     
     void print(){
+        if (count==0) {
+            std::cout<<"Data set is empty.\n";
+            return;
+        }
         data_list.moveToStart();
+        if (data_list.length()==0) {
+            std::cout<<"Data set is empty.\n";
+            return;
+        }
         for (int i=0; i<data_list.length(); i++) {
             std::cout<<std::get<1>(data_list.getValue())<<" copies of "<<std::get<0>(data_list.getValue())<<", first appeared at index "<<std::get<2>(data_list.getValue())-1<<"\n";
             data_list.next();
         }
+    }
+    
+    void print_stats(){
+        std::cout<<"\nTotal length: "<<length_total();
+        std::cout<<"\nUnique length: "<<length_unique();
+        std::cout<<"\nMax: "<<get_max();
+        std::cout<<"\nMin: "<<get_min();
+        std::cout<<"\nMean: "<<get_mean();
+        std::cout<<"\nMode: "<<get_mode();
+        std::cout<<"\nSD: "<<get_sd();
+        if (count==0) {
+            std::cout<<"\nData set is empty.";
+        }
+        std::cout<<"\n";
     }
     
     void search(int data){
@@ -163,7 +220,19 @@ public:
         data_list.moveToPos(index);
         return std::get<0>(data_list.getValue());
     }
-
+    
+    template<typename T>
+    void feed(T datas){
+        for (int data:datas) {
+            append(data);
+        }
+    }
+    
+    void empty(){
+        data_list.~LList();
+        min = max = mean = mean = mode = SD = count = unique_count =0;
+    }
+    
 };
 
 
