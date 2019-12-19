@@ -4,6 +4,7 @@
 - [ ] maybe some updates on main file, to do better demos
 - [ ] maybe minor things on simple_stat.h
 
+```
 Learning objectives are to:
 - Study and apply linear structures learned in the class
 - Study and apply C++ standard containers
@@ -69,3 +70,4 @@ Submission:
 - Good readme.md page in github 
 - complete UML class digram for Simple_stat class and overall class interaction diagram for the entire project
 - Testing criteria: soon to be updated
+```
