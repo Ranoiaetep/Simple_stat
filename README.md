@@ -7,41 +7,31 @@ Learning objectives are to:
 - Learn simple statistics operations 
 - Learn Git and GitHub operations
 
-The solution objective of this project is to represent a series of numeric type (both integer and double) data (is called "data object" from now on) that offers Θ(1) access to few statistics (mentioned below)  according to below properties:
+The solution objective of this project is to represent a series of numeric type (both integer and double) data (is called "data object" from now on) that offers **Θ(1) access** to few statistics (mentioned below)  according to below properties:
 
-typical data object has a lot of duplicate entries 
-there is no limit to the number of unique data elements inside
-data object supports simple statistics such as mode (Links to an external site.), median (Links to an external site.), mean (Links to an external site.) ,  standard deviation (Links to an external site.), min and max
-fastest possible access to above statistics is paramount
-so above statistics also represent a part of the state of the data object
-both fast access and saving space is paramount; developer must strive to use the smallest space possible for storage and must give LaTeX: \Theta\left(1\right)
-Θ
-(
-1
-)
- access to above statistics when demanded
-In addition to above mentioned states, your data structure must support below operations:
-append: append new data from the end
-removen (from any place): remove n number of a given data element
-empty: delete all data
-feed: append from from any standard C++ container (any that supports iteration) data type (std::array, std::vector, std::set, etc)). This may be bit hard. Search about this and really have a meaningful discussion within the team.  Only one feed method is allowed: this means no overloaded feed methods
-search (fastest possible among the choices what we have  discussed in the class): must return the location of the first occurrence and repetition. For example, if the first occurrence of data value 20 is 3  and there are 10 of 20s, then you must return 3 and 10 as the search result of 20
-array index operator, []: access each unique element through an index: overload the array index operator ([]) so that the ith data element in an instance of your data object, db can be accessed like db[i]
-length_unique: number of unique elements in your data object
-length_total: total number of elements in your data object
-unique_set: return all the unique elements as an std::set
-getters (all must be LaTeX: \Theta\left(1\right)
-Θ
-(
-1
-)
-):
-get_mode: returns the mode value of the current entire data set
-get_median: returns the median value of the current entire data set
-get_ mean: returns the mean value of the current entire data set
-get_SD: returns the standard deviation  of the current entire data set
-get_min: returns the minimum data item in the current entire data set
-get_max: returns the maximum data item in the current entire data set 
+- typical data object has a lot of duplicate entries 
+- there is no limit to the number of unique data elements inside
+- data object supports simple statistics such as mode (Links to an external site.), median (Links to an external site.), mean (Links to an external site.) ,  standard deviation (Links to an external site.), min and max
+- fastest possible access to above statistics is paramount
+- so above statistics also represent a part of the state of the data object
+- both fast access and saving space is paramount; developer must strive to use the smallest space possible for storage and must give Θ(1) access to above statistics when demanded
+- In addition to above mentioned states, your data structure must support below operations:
+  - append: append new data from the end
+  - removen (from any place): remove n number of a given data element
+  - empty: delete all data
+  - feed: append from from any standard C++ container (any that supports iteration) data type (std::array, std::vector, std::set, etc)). This may be bit hard. Search about this and really have a meaningful discussion within the team.  Only one feed method is allowed: this means no overloaded feed methods
+  - search (fastest possible among the choices what we have  discussed in the class): must return the location of the first occurrence and repetition. For example, if the first occurrence of data value 20 is 3  and there are 10 of 20s, then you must return 3 and 10 as the search result of 20
+  - array index operator, []: access each unique element through an index: overload the array index operator ([]) so that the ith data element in an instance of your data object, db can be accessed like db[i]
+  - length_unique: number of unique elements in your data object
+  - length_total: total number of elements in your data object
+  - unique_set: return all the unique elements as an std::set
+  - getters (all must be Θ(1)):
+    - get_mode: returns the mode value of the current entire data set
+    - get_median: returns the median value of the current entire data set
+    - get_ mean: returns the mean value of the current entire data set
+    - get_SD: returns the standard deviation  of the current entire data set
+    - get_min: returns the minimum data item in the current entire data set
+    - get_max: returns the maximum data item in the current entire data set 
 Below are requirements and restrictions:
 
 The principle data structure must be the most qualified linear structure we discussed so far in the class . So in the implementation you must use the code provided in Canvas also linked here
