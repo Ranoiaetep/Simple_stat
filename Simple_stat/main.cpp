@@ -1,6 +1,7 @@
 #include "Simple_stat.h"
 
 #include <iostream>
+#include <vector>
 
 
 int main(int argc, char *argv[])
@@ -22,11 +23,7 @@ int main(int argc, char *argv[])
     stats.append(10);
 
 
-    std::cout<<"\nMax: "<<stats.get_max();
-    std::cout<<"\nMin: "<<stats.get_min();
-    std::cout<<"\nMean: "<<stats.get_mean();
-    std::cout<<"\nMode: "<<stats.get_mode();
-    std::cout<<"\nSD: "<<stats.get_sd();
+    stats.print_stats();
     
     std::cout<<"\n";
     stats.print();
@@ -40,15 +37,16 @@ int main(int argc, char *argv[])
     stats.search(5);
     stats.search(7);
     std::cout<<"\n";
-
+    
+    stats.print_stats();
+    
+    std::cout<<"\n\nAccessing unique elemetns through [] operator:\n";
     for (int i=0; i<stats.size(); i++) {
         std::cout<<stats[i]<<"\n";
     }
     
-    std::cout<<"\nMax: "<<stats.get_max();
-    std::cout<<"\nMin: "<<stats.get_min();
-    std::cout<<"\nMean: "<<stats.get_mean();
-    std::cout<<"\nMode: "<<stats.get_mode();
-    std::cout<<"\nSD: "<<stats.get_sd();
+    std::vector<int> v {3,3,5,5,8};
+    stats.feed(v);
+    stats.print_stats();
     
 }

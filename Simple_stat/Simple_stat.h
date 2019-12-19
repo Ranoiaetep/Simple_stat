@@ -23,23 +23,6 @@ public:
     Simple_stat(){
         LList<std::tuple <int,int,int>> data_list;
     }
-    
-    void calc_mean(){
-        mean = sum/(double)count;
-    }
-    void calc_sd(){
-        SD = sqrt(sq_sum/(double)count-mean*mean);
-    }
-    
-    void calc_mode(){
-        mode = highest_mode.first;
-    }
-    
-    void calc_data(){
-        calc_mean();
-        calc_sd();
-        calc_mode();
-    }
 
     std::pair<int,int> new_mode(std::tuple <int,int,int> data){
         if (std::get<1>(data)>highest_mode.second) {
@@ -119,14 +102,41 @@ public:
         return unique_count;
     }
     
-    int get_min(){
+    void calc_mean(){
+        mean = sum/(double)count;
+    }
+    void calc_sd(){
+        SD = sqrt(sq_sum/(double)count-mean*mean);
+    }
+    
+    void calc_mode(){
+        mode = highest_mode.first;
+    }
+    
+    void calc_min(){
         data_list.moveToStart();
-        return std::get<0>(data_list.getValue());
+        min = std::get<0>(data_list.getValue());
+    }
+    
+    void calc_max(){
+        data_list.moveToPos(data_list.length()-1);
+        max = std::get<0>(data_list.getValue());
+    }
+    
+    void calc_data(){
+        calc_min();
+        calc_max();
+        calc_mean();
+        calc_sd();
+        calc_mode();
+    }
+    
+    int get_min(){
+        return min;
     }
     
     int get_max(){
-        data_list.moveToPos(data_list.length()-1);
-        return std::get<0>(data_list.getValue());
+        return max;
     }
     
     double get_mean(){
@@ -139,6 +149,14 @@ public:
     
     int get_mode(){
         return mode;
+    }
+    
+    int length_unique(){
+        return unique_count;
+    }
+    
+    int length_total(){
+        return count;
     }
     
     double sqrt(double number){
@@ -159,6 +177,16 @@ public:
         }
     }
     
+    void print_stats(){
+        std::cout<<"\nTotal length: "<<length_total();
+        std::cout<<"\nUnique length: "<<length_unique();
+        std::cout<<"\nMax: "<<get_max();
+        std::cout<<"\nMin: "<<get_min();
+        std::cout<<"\nMean: "<<get_mean();
+        std::cout<<"\nMode: "<<get_mode();
+        std::cout<<"\nSD: "<<get_sd();
+    }
+    
     void search(int data){
         data_list.moveToStart();
         for (int i=0; i<data_list.length(); i++) {
@@ -175,7 +203,14 @@ public:
         data_list.moveToPos(index);
         return std::get<0>(data_list.getValue());
     }
-
+    
+    template<typename T>
+    void feed(T datas){
+        for (int data:datas) {
+            append(data);
+        }
+    }
+    
 };
 
 
