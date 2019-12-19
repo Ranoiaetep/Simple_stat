@@ -23,6 +23,23 @@ public:
     Simple_stat(){
         LList<std::tuple <int,int,int>> data_list;
     }
+    
+    void calc_mean(){
+        mean = sum/(double)count;
+    }
+    void calc_sd(){
+        SD = sqrt(sq_sum/(double)count-mean*mean);
+    }
+    
+    void calc_mode(){
+        mode = highest_mode.first;
+    }
+    
+    void calc_data(){
+        calc_mean();
+        calc_sd();
+        calc_mode();
+    }
 
     std::pair<int,int> new_mode(std::tuple <int,int,int> data){
         if (std::get<1>(data)>highest_mode.second) {
@@ -45,6 +62,7 @@ public:
                 data_list.moveToStart();
                 unique_count++;
                 highest_mode = new_mode(dataset);
+                calc_data();
                 return;
             }
             if (data==std::get<0>(data_list.getValue())){
@@ -53,6 +71,7 @@ public:
                 data_list.remove();
                 data_list.insert(dataset);
                 highest_mode = new_mode(dataset);
+                calc_data();
                 return;
             }
             data_list.next();
@@ -62,6 +81,7 @@ public:
         data_list.insert(dataset);
         highest_mode = new_mode(dataset);
         unique_count++;
+        calc_data();
     }
     
     void removen (int data, int quantity){
@@ -79,29 +99,15 @@ public:
                     unique_count--;
                 }
                 sum-=data*quantity;
-                /*
-                if (std::get<0>(dataset)==highest_mode.first) {
+                if (data == mode) {
+                    highest_mode = std::make_pair(0, 0);
                     data_list.moveToStart();
-                    int high = 0;
-                    for (int i=0; i<data_list.length(); i++) {
-                        int a = std::get<1>(data_list.getValue());
-                        if (high<a) {
-                            high=a;
-                            std::cout<<std::get<0>(data_list.getValue())<<"hi\n";
-                        }
+                    for (int n=0;n<data_list.length(); n++) {
+                        highest_mode = new_mode(data_list.getValue());
                         data_list.next();
                     }
-                    int index = 0;
-                    for (int i=0; i<data_list.length(); i++) {
-                        if (std::get<0>(data_list.getValue())==high) {
-                            index = i;
-                        }
-                    }
-                    std::cout<<index;
-                    data_list.moveToPos(index);
-                    new_mode(data_list.getValue());
                 }
-                 */
+                calc_data();
                 return;
             }
             data_list.next();
@@ -124,11 +130,15 @@ public:
     }
     
     double get_mean(){
-        return sum/(double)count;
+        return mean;
+    }
+    
+    double get_sd(){
+        return SD;
     }
     
     int get_mode(){
-        return highest_mode.first;
+        return mode;
     }
     
     double sqrt(double number){

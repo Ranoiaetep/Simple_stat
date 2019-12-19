@@ -22,11 +22,11 @@ int main(int argc, char *argv[])
     stats.append(10);
 
 
-
     std::cout<<"\nMax: "<<stats.get_max();
     std::cout<<"\nMin: "<<stats.get_min();
     std::cout<<"\nMean: "<<stats.get_mean();
     std::cout<<"\nMode: "<<stats.get_mode();
+    std::cout<<"\nSD: "<<stats.get_sd();
     
     std::cout<<"\n";
     stats.print();
@@ -49,5 +49,6 @@ int main(int argc, char *argv[])
     std::cout<<"\nMin: "<<stats.get_min();
     std::cout<<"\nMean: "<<stats.get_mean();
     std::cout<<"\nMode: "<<stats.get_mode();
+    std::cout<<"\nSD: "<<stats.get_sd();
     
 }
