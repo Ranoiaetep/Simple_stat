@@ -1,3 +1,9 @@
+**Things to do:**
+**- [ ] UML diagram
+**- [ ] an actual README file
+- [ ] maybe some updates on main file, to do better demos
+- [ ] maybe minor things on simple_stat.h
+
 Learning objectives are to:
 - Study and apply linear structures learned in the class
 - Study and apply C++ standard containers
