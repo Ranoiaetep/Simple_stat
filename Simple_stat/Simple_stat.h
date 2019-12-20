@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include "llist.h"
+#include <tuple>
 
 template <typename E> class Simple_stat {
 private:
